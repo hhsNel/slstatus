@@ -64,15 +64,15 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ username, "< %s@",	    NULL },
-	{ hostname, "%s | ",	    NULL },
-	{ cpu_perc, "CPU: %s%% | ", NULL },
-	{ ram_used, "RAM: %sB/",    NULL },
-	{ ram_total,"%sB ",	    NULL },
-	{ ram_free, "(%sB FREE) | ",NULL},
-	{ battery_perc,"BAT1: %s ", "BAT1"},
-	{battery_remaining,"(%s, ", "BAT1"},
-	{ battery_state, "%s) | ",  "BAT1"},
-	{ datetime, "%s >",         "%F %T" },
+	/* function format                  argument */
+	{ username, "\x03< \x04%s\x03@",    NULL },
+	{ hostname, "\x05%s\x03 | ",        NULL },
+	{ cpu_perc, "\x06CPU: %s%%\x03 | ", NULL },
+	{ ram_used, "\x07RAM: %sB/",        NULL },
+	{ ram_total,"%sB ",	            NULL },
+	{ ram_free, "(%sB FREE)\x03 | ",    NULL},
+	{ battery_perc,"\x08BAT1: %s ",     "BAT1"},
+	{battery_remaining,"(%s, ",         "BAT1"},
+	{ battery_state, "%s)\x03 | ",      "BAT1"},
+	{ datetime, "\x08%s\x03 >",         "%F %T" },
 };

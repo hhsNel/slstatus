@@ -63,16 +63,26 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
+
+#define col_username  "^c#ff0000^"
+#define col_hostname  "^c#00ff00^"
+#define col_cpu       "^c#0000ff^"
+#define col_ram       "^c#7f00ff^"
+#define col_battery   "^c#7f7f7f^"
+#define col_date      "^c#ffffff^"
+#define col_status_bg "^b#000000^"
+#define col_status_fg "^c#ff7f00^"
+
 static const struct arg args[] = {
-	/* function format              argument */
-	{ username, "< %s@",      NULL },
-	{ hostname, "%s | ",        NULL },
-	{ cpu_perc, "CPU: %s%% | ", NULL },
-	{ ram_used, "RAM: %sB/",      NULL },
-	{ ram_total,"%sB ",	        NULL },
-	{ ram_free, "(%sB FREE) | ",  NULL},
-	{ battery_perc,"BAT1: %s ",   "BAT1"},
-	{battery_remaining,"(%s, ",     "BAT1"},
-	{ battery_state, "%s) | ",    "BAT1"},
-	{ datetime, "	%s >\0",      "%F %T" },
+	/* function format                                                                     argument */
+	{ username, col_status_fg col_status_bg "< " col_username "%s" col_status_fg "@",      NULL },
+	{ hostname, col_hostname "%s" col_status_fg " | ",                                     NULL },
+	{ cpu_perc, col_cpu "CPU: %s%%" col_status_fg " | ",                                   NULL },
+	{ ram_used, col_ram "RAM: %sB/",                                                       NULL },
+	{ ram_total,"%sB ",	                                                               NULL },
+	{ ram_free, "(%sB FREE)" col_status_fg " | ",                                          NULL},
+	{ battery_perc,col_battery "BAT1: %s ",                                                "BAT1"},
+	{ battery_remaining,"(%s, ",                                                           "BAT1"},
+	{ battery_state, "%s)" col_status_fg " | ",                                            "BAT1"},
+	{ datetime, col_date "%s" col_status_fg " >\0",                                        "%F %T" },
 };

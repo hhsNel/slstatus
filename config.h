@@ -75,14 +75,13 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
 	/* function format                                                                     argument */
-	{ username, col_status_fg col_status_bg "< " col_username "%s" col_status_fg "@",      NULL },
-	{ hostname, col_hostname "%s" col_status_fg " | ",                                     NULL },
-	{ cpu_perc, col_cpu "CPU: %s%%" col_status_fg " | ",                                   NULL },
-	{ ram_used, col_ram "RAM: %sB/",                                                       NULL },
-	{ ram_total,"%sB ",	                                                               NULL },
-	{ ram_free, "(%sB FREE)" col_status_fg " | ",                                          NULL},
-	{ battery_perc,col_battery "BAT1: %s ",                                                "BAT1"},
-	{ battery_remaining,"(%s, ",                                                           "BAT1"},
-	{ battery_state, "%s)" col_status_fg " | ",                                            "BAT1"},
-	{ datetime, col_date "%s" col_status_fg " >\0",                                        "%m/%d/%Y %I:%M:%S%p" },
+	{ username, col_status_bg col_username "%s" col_status_fg "@",                         NULL },
+	{ hostname, col_hostname "%s" col_status_fg " ",                                       NULL },
+	{ cpu_perc, col_cpu "CPU: %s%%" col_status_fg " ",                                     NULL },
+	{ ram_used, col_ram "RAM: %s ",                                                        NULL },
+	{ ram_free, "%sB FREE" col_status_fg " ",                                              NULL},
+	{ battery_perc,col_battery "BAT0: %s ",                                                "BAT0"},
+	{ battery_remaining,"(%s, ",                                                           "BAT0"},
+	{ battery_state, "%s)" col_status_fg " ",                                              "BAT0"},
+	{ datetime, col_date "%s" col_status_fg "\0",                                          "%m/%d/%Y %a %I:%M:%S%p" },
 };

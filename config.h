@@ -84,5 +84,5 @@ static const struct arg args[] = {
 	{ battery_perc,col_battery "BAT0: %s ",                                                "BAT0"},
 	{ battery_remaining,"(%s, ",                                                           "BAT0"},
 	{ battery_state, "%s)" col_status_fg " ",                                              "BAT0"},
-	{ datetime, col_date "%s" col_status_fg "\0",                                          "%m/%d/%Y %a %I:%M:%S%p" },
+	{ datetime, col_date "%s" col_status_fg "\0",                                          "%m/%d/%Y %a %I:%M:%S %p" },
 };
